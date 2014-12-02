@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/johnotander/resolve-css-import",
   "dependencies": {
+    "get-css-urls": "0.0.1",
     "get-imports": "^1.0.0",
     "is-url": "^1.2.0"
   },
