@@ -1,7 +1,7 @@
 var assert = require('assert');
 var resolveCssImports = require('..');
 
-describe('require-css-imports', function() {
+describe('resolve-css-import-urls', function() {
 
   it('should handle a standard import statements', function() {
     assert.deepEqual(
@@ -14,6 +14,10 @@ describe('require-css-imports', function() {
       resolveCssImports('http://foo.com/css/my-css.css', "@import url('../bar.css');"),
       ['http://foo.com/bar.css']);
   });
+
+  it('should return an empty array if no import url statments exist', function() {
+    assert.deepEqual(resolveCssImports('http://foo.com', 'bar'), []);
+  })
 
   it('should throw a type error if a string is not provided', function() {
     assert.throws(resolveCssImports);

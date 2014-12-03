@@ -16,5 +16,5 @@ module.exports = function(url, css) {
     return urlResolver(url, cssUrl);
   });
 
-  return cssUrls;
+  return cssUrls || [];
 }
