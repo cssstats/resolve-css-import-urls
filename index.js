@@ -12,8 +12,17 @@ module.exports = function(url, css) {
 
   var cssUrls = getImports(css).map(function(importStatement) {
     // url('blah.css') => blah.css
-    var cssUrl = getCssUrls(importStatement)[0].replace('url(', '').replace(/["'()]/g,'');
-    return urlResolver(url, cssUrl);
+    var cssRelativePath = getCssUrls(importStatement);
+
+    if(!cssRelativePath.length) {
+      cssRelativePath = importStatement.match(/["'](.*?)["']/ig)
+    }
+
+    if(cssRelativePath && cssRelativePath.length) {
+      cssRelativePath = cssRelativePath[0].replace('url(', '').replace(/["'()]/g,'');
+    }
+
+    return urlResolver(url, cssRelativePath);
   });
 
   return cssUrls || [];

@@ -17,7 +17,19 @@ describe('resolve-css-import-urls', function() {
 
   it('should return an empty array if no import url statments exist', function() {
     assert.deepEqual(resolveCssImports('http://foo.com', 'bar'), []);
-  })
+  });
+
+  it('should handle single quoted urls', function() {
+    assert.deepEqual(
+      resolveCssImports('http://foo.com/css/my-css.css', "@import '../bar.css' print;"),
+      ['http://foo.com/bar.css']);
+  });
+
+  it('should handle double quoted urls', function() {
+    assert.deepEqual(
+      resolveCssImports('http://foo.com/css/my-css.css', "@import \"bar.css\" projection;"),
+      ['http://foo.com/css/bar.css']);
+  });
 
   it('should throw a type error if a string is not provided', function() {
     assert.throws(resolveCssImports);

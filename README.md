@@ -4,6 +4,17 @@
 
 Parse CSS import statements (`@import url(bar.css)`) in a string and return the full urls (`http://foo.com/bar.css`).
 
+Support for the following `@import` [syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@import):
+
+```css
+@import url("fineprint.css") print;
+@import url("bluish.css") projection, tv;
+@import 'custom.css';
+@import url("chrome://communicator/skin/");
+@import "common.css" screen, projection;
+@import url('landscape.css') screen and (orientation:landscape);
+```
+
 ## Installation
 
 ```
