@@ -8,11 +8,16 @@ Support for the following `@import` [syntax](https://developer.mozilla.org/en-US
 
 ```css
 @import url("fineprint.css") print;
-@import url("bluish.css") projection, tv;
-@import 'custom.css';
-@import url("chrome://communicator/skin/");
+@import 'custom.css' projection;
+@import "custom.css";
+```
+
+TODO: Support the following
+
+```css
 @import "common.css" screen, projection;
 @import url('landscape.css') screen and (orientation:landscape);
+@import url("bluish.css") projection, tv;
 ```
 
 ## Installation
