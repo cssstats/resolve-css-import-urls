@@ -31,8 +31,8 @@ npm i --save resolve-css-import-urls
 ```javascript
 var resolveCssImportUrls = require('resolve-css-import-urls');
 
-resolveCssImportUrls("url(foo.css); lksjhlksjhdf url(bar.css);")
-// => ["foo.css", "bar.css"]
+resolveCssImportUrls('http://example.com/css', 'url(foo.css); lksjhlksjhdf url(../bar.css);')
+// => ['http://example.com/css/foo.css', 'http://example.com/bar.css']
 
 resolveCssImportUrls("(foo.css); lksjhlksjhdf") // => []
 ```

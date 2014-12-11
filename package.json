@@ -1,6 +1,6 @@
 {
   "name": "resolve-css-import-urls",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Turn CSS @import statements into full urls",
   "main": "index.js",
   "directories": {
