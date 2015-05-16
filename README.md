@@ -1,6 +1,6 @@
 # Resolve CSS Import Urls
 
-[![Build Status](https://travis-ci.org/johnotander/resolve-css-import-urls.svg?branch=master)](https://travis-ci.org/johnotander/resolve-css-import-urls)
+[![Build Status](https://travis-ci.org/cssstats/resolve-css-import-urls.svg?branch=master)](https://travis-ci.org/cssstats/resolve-css-import-urls)
 
 Parse CSS import statements (`@import url(bar.css)`) in a string and return the full urls (`http://foo.com/bar.css`).
 
