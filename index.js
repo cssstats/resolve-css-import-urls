@@ -1,29 +1,30 @@
-'use strict';
+'use strict'
 
-var urlResolver = require('url').resolve;
-var getImports = require('get-imports');
-var getCssUrls = require('get-css-urls');
-var isUrl = require('is-url');
+const { resolve } = require('url')
+const getImports = require('get-imports')
+const getCssUrls = require('get-css-urls')
+const isPresent = require('is-present')
+const isUrl = require('is-url')
 
-module.exports = function(url, css) {
-  if(typeof url != 'string' || typeof css != 'string' || !isUrl(url)) {
-    throw new TypeError('resolve-css-imports expected two string parameters (url, css)');
+module.exports = (url, css) => {
+  if(typeof url !== 'string' || typeof css !== 'string' || !isUrl(url)) {
+    throw new TypeError('resolve-css-imports expected two string parameters (url, css)')
   }
 
-  var cssUrls = getImports(css).map(function(importStatement) {
+  const cssUrls = getImports(css).map(importStatement => {
     // url('blah.css') => blah.css
-    var cssRelativePath = getCssUrls(importStatement);
+    let cssRelativePath = getCssUrls(importStatement)
 
-    if(!cssRelativePath.length) {
+    if(!isPresent(cssRelativePath)) {
       cssRelativePath = importStatement.match(/["'](.*?)["']/ig)
     }
 
-    if(cssRelativePath && cssRelativePath.length) {
-      cssRelativePath = cssRelativePath[0].replace('url(', '').replace(/["'()]/g,'');
+    if(isPresent(cssRelativePath)) {
+      cssRelativePath = cssRelativePath[0].replace('url(', '').replace(/["'()]/g,'')
     }
 
-    return urlResolver(url, cssRelativePath);
-  });
+    return resolve(url, cssRelativePath)
+  })
 
-  return cssUrls || [];
+  return cssUrls
 }

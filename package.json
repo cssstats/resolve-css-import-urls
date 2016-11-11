@@ -1,18 +1,15 @@
 {
   "name": "resolve-css-import-urls",
   "version": "0.0.3",
-  "description": "Turn CSS @import statements into full urls",
+  "description": "Turn css @import statements into full urls",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "test": "mocha test"
+    "test": "ava -v"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/johnotander/resolve-css-import-urls.git"
-  },
+  "repository": "cssstats/resolve-css-import-urls",
   "keywords": [
     "css",
     "css-import",
@@ -20,18 +17,15 @@
     "url",
     "resolve"
   ],
-  "author": "John Otander <johnotander@gmail.com> (http://johnotander.com/)",
+  "author": "John Otander",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/johnotander/resolve-css-import-urls/issues"
-  },
-  "homepage": "https://github.com/johnotander/resolve-css-import-urls",
   "dependencies": {
-    "get-css-urls": "0.0.1",
+    "get-css-urls": "1.0.1",
     "get-imports": "^1.0.0",
-    "is-url": "^1.2.0"
+    "is-present": "^1.0.0",
+    "is-url": "^1.2.2"
   },
   "devDependencies": {
-    "mocha": "^2.0.1"
+    "ava": "^0.16.0"
   }
 }

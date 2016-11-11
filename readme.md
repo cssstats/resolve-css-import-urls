@@ -1,8 +1,6 @@
-# Resolve CSS Import Urls
+# resolve-css-import-urls [![Build Status](https://travis-ci.org/cssstats/resolve-css-import-urls.svg?branch=master)](https://travis-ci.org/cssstats/resolve-css-import-urls) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-[![Build Status](https://travis-ci.org/cssstats/resolve-css-import-urls.svg?branch=master)](https://travis-ci.org/cssstats/resolve-css-import-urls)
-
-Parse CSS import statements (`@import url(bar.css)`) in a string and return the full urls (`http://foo.com/bar.css`).
+Parse css import statements (`@import url(bar.css)`) in a string and return the full urls (`http://foo.com/bar.css`).
 
 Support for the following `@import` [syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@import):
 
@@ -29,7 +27,7 @@ npm i --save resolve-css-import-urls
 ## Usage
 
 ```javascript
-var resolveCssImportUrls = require('resolve-css-import-urls');
+const resolveCssImportUrls = require('resolve-css-import-urls')
 
 resolveCssImportUrls('http://example.com/css', 'url(foo.css); lksjhlksjhdf url(../bar.css);')
 // => ['http://example.com/css/foo.css', 'http://example.com/bar.css']
@@ -50,3 +48,7 @@ MIT
 5. Create new Pull Request
 
 Crafted with <3 by [John Otander](http://johnotander.com).
+
+***
+
+> This package was initially generated with [yeoman](http://yeoman.io) and the [p generator](https://github.com/johnotander/generator-p.git).
